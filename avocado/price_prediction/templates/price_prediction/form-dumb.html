@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+{% verbatim %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+{% endverbatim %}
+
+ {% load static %}
+<script src="{% static 'price_prediction/app.js' %}"></script>
+<link rel="stylesheet" href="{% static 'price_prediction/style.css' %}"/>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Yes </title>
+</head>
+<body ng-app="avocadoForm">
+    <ul class="avocado-form" ng-controller="AvocadoFormController">
+            <li>
+                <label>Total volume:
+                </label>
+                <input type="number" ng-model="avocadoOrder.total_volume" name="total_volume" required />
+                <br />
+                <!-- Show if submitted or touched -->
+                <div ng-show="form.$submitted || form.total_volume.$touched" class="error-field-required">
+                    <!-- Error if not filled out -->
+                    <div ng-show="form.total_volume.$error.required"> This field is required </div>
+                </div>
+            </li>
+            <li>
+                <label>4046:
+                </label>
+                <input type="number" ng-model="avocadoOrder.num_plu_4046" name="num_plu_4046" required />
+                <br />
+                <!-- Show if submitted or touched -->
+                <div ng-show="form.$submitted || form.num_plu_4046.$touched" class="error-field-required">
+                    <!-- Error if not filled out -->
+                    <div ng-show="form.num_plu_4046.$error.required"> This field is required </div>
+                </div>
+            </li>
+            <li>
+        <label>4225:
+        </label>
+         <input type="number" ng-model="avocadoOrder.num_plu_4225" name="num_plu_4225" required />
+        <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.num_plu_4225.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.num_plu_4225.$error.required"> This field is required </div>
+        </div>
+         </li>
+        <li>
+           <label>4770:
+           </label>
+           <input type="number" ng-model="avocadoOrder.num_plu_4770" name="num_plu_4770" required />
+           <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.num_plu_4770.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.num_plu_4770.$error.required"> This field is required </div>
+        </div>
+        </li>
+        <li>
+            <label>Total bags:
+            </label>
+            <input type="number" ng-model="avocadoOrder.total_bags" name="total_bags" required />
+            <br />
+            <!-- Show if submitted or touched -->
+            <div ng-show="form.$submitted || form.total_bags.$touched" class="error-field-required">
+                <!-- Error if not filled out -->
+            <div ng-show="form.total_bags.$error.required"> This field is required </div>
+        </div>
+
+        </li>
+            <li>
+        <label>Small bags:
+        </label>
+        <input type="number" ng-model="avocadoOrder.small_bags" name="small_bags" required />
+        <br />
+                <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.small_bags.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.small_bags.$error.required"> This field is required </div>
+        </div>
+</li>
+    <li>
+        <label>Large bags:
+        </label>
+                <input type="number" ng-model="avocadoOrder.large_bags" name="large_bags" required />
+        <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.large_bags.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.large_bags.$error.required"> This field is required </div>
+        </div>
+    </li>
+    <li>
+    <label>Extra Large bags:
+        </label>
+                <input type="number" ng-model="avocadoOrder.extra_large_bags" name="extra_large_bags" required />
+        <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.extra_large_bags.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.extra_large_bags.$error.required"> This field is required </div>
+        </div>
+    </li>
+    <li>
+    <label>Type:    </label>
+        <select ng-model="avocadoOrder.type" ng-options="type for type in avocadoTypes" name="type" required>
+            <option value=""> Avocado type </option>
+        </select>
+        <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.type.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.type.$error.required"> This field is required </div>
+        </div>
+    </li>
+    <li>
+    <label>Year:    </label>
+        <select ng-model="avocadoOrder.year" ng-options="year for year in avocadoYears" name="year" required>
+            <option value=""> Avocado type </option>
+        </select>
+        <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.type.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.type.$error.required"> This field is required </div>
+        </div>
+    </li>
+    <li>
+    <label>region:    </label>
+        <select ng-model="avocadoOrder.region" ng-options="region for region in regions" name="region" required>
+            <option value=""> Region </option>
+        </select>
+        <br />
+        <!-- Show if submitted or touched -->
+        <div ng-show="form.$submitted || form.region.$touched" class="error-field-required">
+            <!-- Error if not filled out -->
+            <div ng-show="form.region.$error.required"> This field is required </div>
+        </div>
+    </li>
+  <div class="form-controls">
+                <input type="button" ng-click="submit(avocadoOrder)" value="submit" class="form-controls" />
+                <input type="submit" ng-click="update(avocadoOrder)" value="Save" class="form-controls" />
+  </div>
+        {% verbatim %}
+        <div> price = {{ price_prediction | json }}</div>
+        <div> formData = {{ formData | json }}</div>
+        {% endverbatim %}
+    </ul>
+
+
+</body>
+</html>

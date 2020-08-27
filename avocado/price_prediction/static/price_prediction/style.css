@@ -1,0 +1,37 @@
+.avocado-form {
+
+}
+.avocado-form  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+.form-controls {
+    text-align: center;
+    justify-content: center;
+}
+
+.avocado-form > li > label {
+    /*flex: 1 0 120px;*/
+    flex: auto;
+    max-width: 220px;
+}
+
+.avocado-form > li > label + * {
+    flex: 1 0 220px;
+    max-width: 220px;
+}
+.error-field-required {
+    color: tomato;
+}
+/*.flex-outer > li > label,
+.flex-outer li p {
+  flex: 1 0 120px;
+  max-width: 220px;
+}
+
+.flex-outer > li > label + *,
+.flex-inner {
+  flex: 1 0 220px;
+}*/

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+{% verbatim %}
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+{% endverbatim %}
+
+ {% load static %}
+<script src="{% static 'price_prediction/app.js' %}"></script>
+<link rel="stylesheet" href="{% static 'price_prediction/style.css' %}"/>
+
+
+{% verbatim %}
+
+<body ng-app="avocadoForm">
+
+<!-- $scope in AvocadoFormController refers to this div -->
+    <div ng-controller="AvocadoFormController">
+        <form name="form" class="css-form" novalidate >
+
+            <ul class="avocado-form">
+                <li ng-repeat="field in formFields">
+                <label > {{ field.name }}:
+                </label>
+                     <input name="{{field.name}}" ng-required="{{ field.required }}"
+                            type="{{ field.type }}">
+                </li>
+            </ul>
+            <div class="form-controls">
+                <input type="button" ng-click="submit(form)" value="submit" class="form-controls" />
+                <input type="submit" ng-click="update(avocadoOrder)" value="Save" class="form-controls" />
+            </div>
+        <div> price = {{ price_prediction | json }}</div>
+        <div> formData = {{ formData | json }}</div>
+            <!-- TODO: make the form automatically from a json specifier -->
+      </form>
+
+
+    {% endverbatim %}
+    </div>
+</body>
+</html>
