@@ -11,9 +11,7 @@ from PricePredictionModel import model
 import pandas as pd
 from datetime import datetime
 import io
-from datetime import datetime
 
-import pandas as pd
 from PricePredictionModel import model
 from django.http import HttpRequest, HttpResponse
 from django.template import loader

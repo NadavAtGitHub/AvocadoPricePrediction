@@ -10,7 +10,7 @@ class AvocadoOrder(models.Model):
     num_plu_4046 = models.DecimalField(max_digits=20, decimal_places=5)
     num_plu_4225 = models.DecimalField(max_digits=20, decimal_places=5)
 
-    total_bags = models.DecimalField(max_digits=20, decimal_places=5)  # derived from othr fields, candidate for removal
+    total_bags = models.DecimalField(max_digits=20, decimal_places=5)
     num_plu_4770 = models.DecimalField(max_digits=20, decimal_places=5)
     small_bags = models.DecimalField(max_digits=20, decimal_places=5)
     large_bags = models.DecimalField(max_digits=20, decimal_places=5)

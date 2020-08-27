@@ -1,5 +1,5 @@
 .avocado-form {
-
+    font-family: "PT Sans";
 }
 .avocado-form  li {
     display: flex;
@@ -21,9 +21,15 @@
 .avocado-form > li > label + * {
     flex: 1 0 220px;
     max-width: 220px;
+    /*padding-bottom: 10px;*/
 }
+
+.avocado-form > li > input {
+}
+
 .error-field-required {
     color: tomato;
+    align-content: space-around;
 }
 /*.flex-outer > li > label,
 .flex-outer li p {
