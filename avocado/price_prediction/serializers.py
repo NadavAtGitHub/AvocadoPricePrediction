@@ -9,6 +9,8 @@ class AvocadoPredictionSerializer(serializers.ModelSerializer):
     def validate(self, attrs):
         """
         Validate the data and return the data formatted as pandas dataframe
+        @param attrs: A python dict of the attributes of the price prediction params object
+        @return: A pandas dataframe containing  the price prediction params
         """
         avocado_data = pd.json_normalize(attrs)
 

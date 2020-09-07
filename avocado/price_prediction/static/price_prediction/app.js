@@ -1,21 +1,5 @@
 let app = angular.module("myApp", ["ngRoute"]);
 
-// app.config(function($routeProvider) {
-//     $routeProvider
-//     .when("/", {
-//         template: 'hello'
-//     })
-//     .when("/red", {
-//         template: 'red'
-//     })
-//     .when("/green", {
-//         template: 'green'
-//     })
-//     .when("/blue", {
-//         template: 'blue'
-//     });
-// });
-
 let avocadoForm = angular.module("avocadoForm", []);
 avocadoForm.controller("AvocadoFormController", ["$scope", "$http", function ($scope, $http) {
         console.log("entered controller");

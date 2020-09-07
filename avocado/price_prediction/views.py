@@ -8,16 +8,21 @@ from rest_framework.renderers import JSONRenderer
 from .serializers import AvocadoPredictionSerializer
 
 
-# Create your views here.
-
-
 def predict_price(avocado_order):
-    """" Stub method for price prediction """
-    # TODO: implement
+    """
+    Predict the average price of an avocado given the order details
+    @param avocado_order: A dataframe containing the data about avocado orders to use for the prediction
+    @return: A python dictionary containing {"price": avocado price prediction}
+    """
     return {"price": model.get_model().predict(avocado_order)}
 
 
 def get_prediction_page(request):
+    """
+    Returns the main page for the price prediction form
+    @param request: A django request object wrapping a simple http get
+    @return: An HTML page with the form for the avocado price prediction
+    """
     template = loader.get_template("price_prediction/form-dumb.html")
     return HttpResponse(template.render())
 
@@ -25,7 +30,12 @@ def get_prediction_page(request):
 @api_view(["GET", "POST"])
 @parser_classes([JSONParser])
 def get_price_prediction(request, format=None):
-    """ Gets data about an avocado and returns a price prediction for it """
+    """
+    Receives data about an avocado and returns a price prediction for it
+    @param request: A django request object containing the data about avocado orders to use for the prediction
+    @param format: A request django format specifier
+    @return: A json response containing the predicted average price of an avocado
+    """
     serializer = AvocadoPredictionSerializer(data=request.data)
 
     if serializer.is_valid():
