@@ -46,29 +46,7 @@ def get_price_prediction(request: HttpRequest):
 def predict_price(avocado_order):
     """" Stub method for price prediction """
     # TODO: implement
-    data = order_as_np_array(avocado_order)
-
-    return {"price": model.get_model().predict(data)}
-
-
-# TODO: move to serializer, add format specifier to model to maintain match
-def order_as_np_array(avocado_order):
-    avocado_data = pd.json_normalize(avocado_order)
-
-    # Day of year, as int
-    avocado_data["day_of_year"] = datetime.now().strftime("%-j")
-    avocado_data["small_bags_of_total"] = avocado_data["small_bags"] / avocado_data["total_bags"]
-    avocado_data["large_bags_of_total"] = avocado_data["large_bags"] / avocado_data["total_bags"]
-    avocado_data["extra_large_bags_of_total"] = avocado_data["extra_large_bags"] / avocado_data["total_bags"]
-
-    avocado_data["location_volumes"] = avocado_data["num_plu_4046"] + avocado_data["num_plu_4225"] + \
-                                       avocado_data["num_plu_4770"]
-    avocado_data["num_plu_4046_of_location_volume"] = avocado_data["num_plu_4046"] / avocado_data["location_volumes"]
-    avocado_data["num_plu_4225_of_location_volume"] = avocado_data["num_plu_4225"] / avocado_data["location_volumes"]
-    avocado_data["num_plu_4770_of_location_volume"] = avocado_data["num_plu_4770"] / avocado_data["location_volumes"]
-    avocado_data["location_of_total_volume"] = avocado_data["location_volumes"] / avocado_data["total_volume"]
-
-    return avocado_data
+    return {"price": model.get_model().predict(avocado_order)}
 
 
 def get_prediction_page(request):
