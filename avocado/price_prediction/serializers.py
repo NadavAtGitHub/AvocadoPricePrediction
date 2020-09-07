@@ -20,11 +20,14 @@ class AvocadoPredictionSerializer(serializers.ModelSerializer):
         avocado_data["large_bags_of_total"] = avocado_data["large_bags"] / avocado_data["total_bags"]
         avocado_data["extra_large_bags_of_total"] = avocado_data["extra_large_bags"] / avocado_data["total_bags"]
 
-        avocado_data["location_volumes"] = avocado_data["num_plu_4046"] + avocado_data["num_plu_4225"] + \
-                                           avocado_data["num_plu_4770"]
-        avocado_data["num_plu_4046_of_location_volume"] = avocado_data["num_plu_4046"] / avocado_data["location_volumes"]
-        avocado_data["num_plu_4225_of_location_volume"] = avocado_data["num_plu_4225"] / avocado_data["location_volumes"]
-        avocado_data["num_plu_4770_of_location_volume"] = avocado_data["num_plu_4770"] / avocado_data["location_volumes"]
+        avocado_data["location_volumes"] = (avocado_data["num_plu_4046"] + avocado_data["num_plu_4225"]
+                                            + avocado_data["num_plu_4770"])
+        avocado_data["num_plu_4046_of_location_volume"] = (avocado_data["num_plu_4046"]
+                                                           / avocado_data["location_volumes"])
+        avocado_data["num_plu_4225_of_location_volume"] = (avocado_data["num_plu_4225"]
+                                                           / avocado_data["location_volumes"])
+        avocado_data["num_plu_4770_of_location_volume"] = (avocado_data["num_plu_4770"]
+                                                           / avocado_data["location_volumes"])
         avocado_data["location_of_total_volume"] = avocado_data["location_volumes"] / avocado_data["total_volume"]
 
         return avocado_data
