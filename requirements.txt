@@ -19,7 +19,7 @@ pytest==5.4.3
 pytest-django==3.9.0
 pytz==2020.1
 six==1.15.0
-sqlparse==0.3.1
+sqlparse==0.4.4
 toml==0.10.1
 typed-ast==1.4.1
 wcwidth==0.2.5
